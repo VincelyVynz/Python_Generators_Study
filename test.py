@@ -40,14 +40,19 @@
 # for c in countdown(5):
 #     print(c)
 
+#
+# def read_file_lines(filename):
+#     with open(filename, 'r') as file:
+#         contents = file.readline()
+#         while contents != "":
+#             yield contents
+#             contents = file.readline()
+#
+#
+# for line in read_file_lines("textfile.txt"):
+#     print(line)
 
-def read_file_lines(filename):
-    with open(filename, 'r') as file:
-        contents = file.readline()
-        while contents != "":
-            yield contents
-            contents = file.readline()
+from word_frequency_counter import WordFrequency
 
-
-for line in read_file_lines("textfile.txt"):
-    print(line)
+test = WordFrequency('textfile.txt')
+print(test.frequency_dict)

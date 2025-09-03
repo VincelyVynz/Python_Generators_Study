@@ -36,38 +36,28 @@ def get_word_frequency(filename):
 class WordFrequency:
     def __init__(self, filename):
         self.filename = filename
-        self.freq_dict = {}
-        self.line_reader()
-        self.word_splitter()
+        self.frequency_dict = {}
+        self.processed = False
+        self.punctuations = r".,!?;:\"'()[]{}"
 
-    def line_reader(self):
+    def process_file(self):
         try:
             with open(self.filename, 'r') as file:
-                self.line = file.readline()
-                while self.line != "":
-                    yield self.line
-                    self.line = file.readline()
+                line = file.readline()
+                while line != "":
+                    for word in line.split():
+                        word = word.strip(self.punctuations)
+                        if word not in self.frequency_dict:
+                            self.frequency_dict[word] = 1
+                        else:
+                            self.frequency_dict[word] += 1
+                    line = file.readline()
+                    if line == "":
+                        self.processed = True
         except FileNotFoundError:
-            print(f"Could not fine {self.filename}")
-        except Exception as e:
-            print(e)
+            print(f"Could not find {self.filename}")
 
-    def word_splitter(self):
-        punctuations = r".,!?;:\"'()[]{}"
-        while self.line != "":
-            for word in self.line:
-                self.word = word.split().strip(punctuations)
-                yield self.word
-                self.freq_counter()
-
-    def freq_counter(self.word):
-        if self.word not in self.freq_dict:
-            self.freq_dict[self.word] = 1
-        else:
-            self.freq_dict[self.word] += 1
-
-    def print_freq_dict(self):
-        if self.word not in self.freq_list:
-            self.freq_counter()
-        print(self.freq_dict)
-
+    def get_freq_dict(self):
+        if not self.processed:
+            self.process_file()
+            return self.frequency_dict
