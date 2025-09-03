@@ -1,4 +1,4 @@
-# Example from CS50P youtube
+# Example from CS50P YouTube
 
 def main():
     n = int(input("Enter a number: "))
