@@ -54,5 +54,6 @@
 
 from word_frequency_counter import WordFrequency
 
-test = WordFrequency('textfile.txt')
-print(test.frequency_dict)
+test = WordFrequency("textfile.txt")
+print(test.get_freq_dict())
+print(test.get_sorted_freq_dict())
