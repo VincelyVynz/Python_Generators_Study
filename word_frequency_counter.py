@@ -1,4 +1,4 @@
-# ---------------- Change to Class ---------------- #
+# ---------------- Word Frequency Counter ---------------- #
 
 class WordFrequency:
     def __init__(self, filename):

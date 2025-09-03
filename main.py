@@ -1,3 +1,5 @@
+# Example from CS50P youtube
+
 def main():
     n = int(input("Enter a number: "))
     for s in sheep(n):
