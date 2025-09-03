@@ -55,5 +55,6 @@
 from word_frequency_counter import WordFrequency
 
 test = WordFrequency("textfile.txt")
+
 print(test.get_freq_dict(output_format="dict"))
-print(test.get_sorted_freq_dict(output_format="json"))
+print(test.get_freq_dict(output_format="json"))
