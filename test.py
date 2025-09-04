@@ -59,6 +59,6 @@ test = WordFrequency("textfile.txt")
 print(test.get_freq_dict(output_format="dict"))
 import json
 
-to_paste = test.get_freq_dict(output_format="dict")
+to_paste = test.get_freq_dict(output_format="json")
 with open("freq_file.json", 'w') as outfile:
-    json.dump(to_paste, outfile, indent=4,sort_keys=True)
+    outfile.write(to_paste)
