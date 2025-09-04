@@ -9,6 +9,7 @@
 #
 # sum_of_first_n = sum(first_n(1000000))
 # print(sum_of_first_n)
+from xml.etree.ElementTree import indent
 
 # print(2 * n for n in range(50))
 
@@ -59,6 +60,6 @@ test = WordFrequency("textfile.txt")
 print(test.get_freq_dict(output_format="dict"))
 import json
 
-to_paste = test.get_freq_dict(output_format="json")
+to_write= test.get_freq_dict(output_format="json")
 with open("freq_file.json", 'w') as outfile:
-    outfile.write(to_paste)
+    outfile.write(to_write)
